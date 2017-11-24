@@ -1,6 +1,5 @@
 import re
 
-
 def parse_terms(file):
     out = open("terms.txt", 'w')
 
@@ -43,10 +42,10 @@ def parse_years(file):
     file.seek(0)
 
     for line in file:
-        key = re.findall('key="(.*?)"', line)
+        key = re.findall('key="(.*?)"', line) # key is a list, hence key[0] below
 
         if len(key) != 0:
-            for years in re.findall("<year>(.*?)</year>", line):
+            for years in re.findall("<year>(.*?)</year>", line): # capture group () in regex makes only that phrase be captured. In this case, phrase without <year> tags.
                 for year in re.split("[^0-9a-zA-Z_]", years):
                     out.write(year + ':' + key[0] + '\n')
 
@@ -66,8 +65,8 @@ def parse_recs(file):
 
     out.close()
     return
-
-
+    
+   
 def main():
     path = input("Please enter the path to the XML file: ")
     file = open(path, 'r')
