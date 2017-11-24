@@ -2,6 +2,10 @@
 
 # Bash Script - Shardul Shah
 
+rm re.idx
+rm te.idx
+rm ye.idx
+
 sort -u -o terms.txt terms.txt
 sort -u -o recs.txt recs.txt
 sort -u -o years.txt years.txt
@@ -17,6 +21,6 @@ db_load -T -t btree -f terms_o.txt te.idx
 db_load -T -t btree -f years_o.txt ye.idx
 
 # Use the following command to test/show the database as terminal output. Replace index_name.idx with the index name:
-#db_dump -p index_name.idx
+db_dump -p ye.idx
 
 
