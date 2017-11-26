@@ -15,10 +15,9 @@ perl break.pl <terms.txt >terms_o.txt
 perl break.pl <recs.txt >recs_o.txt
 perl break.pl <years.txt >years_o.txt
 
-
-db_load -T -t hash -f recs_o.txt re.idx
-db_load -T -t btree -f terms_o.txt te.idx
-db_load -T -t btree -f years_o.txt ye.idx
+db_load -T -t hash -f recs_o.txt -c duplicates=1 re.idx
+db_load -T -t btree -f terms_o.txt -c duplicates=1 te.idx
+db_load -T -t btree -f years_o.txt -c duplicates=1 ye.idx
 
 # Use the following command to test/show the database as terminal output. Replace index_name.idx with the index name:
 db_dump -p ye.idx
