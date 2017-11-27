@@ -2,9 +2,9 @@
 
 # Bash Script - Shardul Shah
 
-rm re.idx
-rm te.idx
-rm ye.idx
+rm -f re.idx
+rm -f te.idx
+rm -f ye.idx
 
 sort -u -o terms.txt terms.txt
 sort -u -o recs.txt recs.txt
